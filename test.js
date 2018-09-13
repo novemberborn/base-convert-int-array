@@ -37,3 +37,9 @@ test('throws if input is too long given the fixed length', t => {
     name: 'RangeError'
   })
 })
+
+test('when the fixed length exceeds the required length, the resulting array has leading zeros', t => {
+  const hexArray = [0, 0, 1]
+  const byteArray = baseConvertIntArray(hexArray, {from: 16, to: 256, fixedLength: 6})
+  t.deepEqual(byteArray, [0, 0, 0, 0, 0, 1])
+})

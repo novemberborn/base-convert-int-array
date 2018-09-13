@@ -32,8 +32,14 @@ function baseConvertIntArray (array, {from, to, fixedLength = null}) {
   }
 
   // Trim leading padding, unless length is fixed.
-  return offset > 0 && fixedLength === null
-    ? result.slice(offset)
-    : result
+  if (fixedLength === null) {
+    return offset > 0 ? result.slice(offset) : result
+  }
+
+  // Fill in any holes in the result array.
+  while (offset > 0) {
+    result[--offset] = 0
+  }
+  return result
 }
 module.exports = baseConvertIntArray
