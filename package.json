@@ -1,6 +1,6 @@
 {
   "name": "base-convert-int-array",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts arrays of integers from one base to another. Uses an O(N²) algorithm.",
   "engine": {
     "node": ">=6 <7 || >=8 <9 || >=10"
